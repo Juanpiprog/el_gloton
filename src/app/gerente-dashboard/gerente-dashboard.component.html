@@ -1,0 +1,42 @@
+<h2>Gestión de Empleados y Platos - Gerente</h2>
+
+<!-- Botones para gestionar empleados y platos -->
+<button (click)="mostrarEmpleados()">Mostrar Empleados</button>
+<button (click)="mostrarClientes()">Mostrar Clientes</button>
+<button (click)="agregarPlato()">Agregar Plato</button>
+
+<!-- Formulario para agregar un nuevo empleado -->
+<h3>Agregar Nuevo Empleado</h3>
+<div>
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" [(ngModel)]="nuevoEmpleado.nombre" required />
+
+  <label for="contrasena">Contraseña:</label>
+  <input type="password" id="contrasena" [(ngModel)]="nuevoEmpleado.contrasena" required />
+
+  <button (click)="agregarEmpleado()">Agregar Empleado</button>
+</div>
+
+<!-- Lista de Empleados -->
+<div *ngIf="empleados.length > 0">
+  <h2>Lista de Empleados</h2>
+  <ul>
+    <li *ngFor="let empleado of empleados">
+      {{ empleado.nombre }}
+      <button (click)="deshabilitarEmpleado(empleado.id)">Deshabilitar Empleado</button>
+      <span *ngIf="!empleado.habilitado" style="color: red;">(Deshabilitado)</span>
+    </li>
+  </ul>
+</div>
+
+<!-- Deshabilitar Empleado -->
+<h3>Deshabilitar Empleado</h3>
+<div *ngIf="empleados.length > 0">
+  <label for="empleadoSelect">Seleccionar Empleado:</label>
+  <select id="empleadoSelect" [(ngModel)]="empleadoSeleccionado">
+    <option *ngFor="let empleado of empleados" [value]="empleado.id">
+      {{ empleado.nombre }}
+    </option>
+  </select>
+  <button (click)="empleadoSeleccionado ? deshabilitarEmpleado(empleadoSeleccionado) : null">Deshabilitar Empleado</button>
+</div>

@@ -1,0 +1,10 @@
+<h2>Inicio de Sesión - Empleado</h2>
+<form (ngSubmit)="iniciarSesion()">
+  <label for="codigo">ID:</label>
+  <input type="text" id="codigo" [(ngModel)]="codigo" name="codigo" required>
+
+  <label for="contrasena">Contraseña:</label>
+  <input type="password" id="contrasena" [(ngModel)]="contrasena" name="contrasena" required>
+
+  <button type="submit">Iniciar Sesión</button>
+</form>

@@ -1,0 +1,36 @@
+
+<router-outlet></router-outlet>
+
+<h1 style="text-align: center; font-family: cursive;">
+    Restaurante El Glotón
+  </h1>
+  <header class="header">
+    <img src="../assets/images/logo.png.jpeg" alt="Logo El Glotón" class="logo">
+    <h1>El Glotón</h1>
+    <nav>
+      <ul class="menu">
+        
+        <li><a routerLink="/"><img src="../assets/folleto.webp" alt="Logo El Glotón" class="logo"></a></li>
+       
+        <li><a routerLink="cliente">Clientes</a></li>
+        <li><a routerLink="empleado">Empleado</a></li>
+        <li><a routerLink="gerente">gerente</a></li>
+      </ul>
+    </nav>
+  </header>
+  <router-outlet></router-outlet>
+  <section id="inicio" class="hero">
+    <div class="hero-content">
+      <h2>Bienvenido a El Glotón</h2>
+      <p>Donde el placer gastronómico se encuentra con la elegancia</p>
+      <a routerLink="menu" class="btn">Explora el Menú</a>
+    </div>
+  </section>
+  <router-outlet></router-outlet>
+  
+   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  
+  <footer class="footer">
+    <p>&copy; 2024 El Glotón. Todos los derechos reservados.</p>
+  </footer>
+  
+  

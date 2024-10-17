@@ -1,0 +1,8 @@
+body {
+    display: block; /* Asegúrate de que el componente ocupe espacio */
+    background-image: url('https://img.freepik.com/vector-gratis/vector-marco-geometrico-azul_53876-140352.jpg?w=996&t=st=1729175016~exp=1729175616~hmac=175f5ef6b5cc1d91808c2a01b7c6d332da899d0d23112462ff63ee711e40ca3f'); /* Ruta de la imagen */
+    background-size: cover; /* Ajusta la imagen para cubrir toda el área */
+    background-position: center; /* Centra la imagen en el componente */
+    height: 100vh; /* Si quieres que el componente ocupe toda la ventana */
+  }
+  

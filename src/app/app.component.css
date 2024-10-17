@@ -1,0 +1,16 @@
+
+
+img {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 10px;
+    background-color: #fff;
+  }
+  :root {
+    --dark-green: #fdf877;
+  
+    --gold: #D4AF37;
+    --deep-orange: #FF8C00;
+    --light-gray: #F5F5F5;
+    --white: #FFFFFF;
+  }

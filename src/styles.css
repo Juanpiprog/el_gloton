@@ -1,0 +1,102 @@
+/* You can add global styles to this file, and also import other style files */
+/* styles.css */
+/* Colores de la paleta */
+:root {
+  --dark-green: #2F4F4F;
+
+  --gold: #D4AF37;
+  --deep-orange: #FF8C00;
+  --light-gray: #F5F5F5;
+  --white: #FFFFFF;
+}
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  /*background-image: url('https://i.pinimg.com/736x/11/29/17/11291737947eb644596723d56b060a83.jpg');*/
+  background-color: var(--light-gray);
+  color: var(--dark-green);
+}
+
+.header {
+  background-color: var(--dark-green);
+  color: var(--white);
+  padding: 1rem;
+  text-align: center;
+}
+
+.menu {
+  position: fixed;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  z-index: 1000;
+}
+
+.menu li {
+  display: inline;
+}
+
+.menu a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hero {
+  background-color: var(--dark-green);
+  color: var(--white);
+  padding: 5rem 1rem;
+  text-align: center;
+}
+
+.hero .btn {
+  background-color: var(--deep-orange);
+  color: var(--white);
+  padding: 1rem 2rem;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.menu-section {
+  padding: 3rem 1rem;
+  background-color: var(--white);
+  text-align: center;
+}
+
+.menu-grid {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+
+.menu-item {
+  background-color: var(--light-gray);
+  padding: 1.5rem;
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  width: 30%;
+}
+
+h2 {
+  color: var(--deep-orange);
+}
+
+h3 {
+  color: var(--dark-green);
+}
+
+.footer {
+  background-color: var(--dark-green);
+  color: var(--white);
+  text-align: center;
+  padding: 1rem 0;
+}
+.logo {
+  width: 150px; /* Ajusta el tamaño según lo que te convenga */
+  height: auto; /* Para mantener la proporción original */
+  margin-bottom: 10px;
+}

@@ -10,6 +10,14 @@ interface Empleado {
   habilitado: boolean;
 }
 
+interface Cliente {
+  id: number;
+  nombre: string;
+  direccion: string;
+  telefono: string;
+  contrasena: string;
+}
+
 @Component({
   selector: 'app-gerente-dashboard',
   standalone: true,
@@ -18,17 +26,23 @@ interface Empleado {
   styleUrls: ['./gerente-dashboard.component.css']
 })
 export class GerenteDashboardComponent {
-empleadoSeleccionado: any;
 mostrarEmpleados() {
 throw new Error('Method not implemented.');
 }
-  empleados: Empleado[] = JSON.parse(localStorage.getItem('empleados') || '[]'); // Cargar empleados desde Local Storage   aqui se cambia para base de datos
+  empleados: Empleado[] = JSON.parse(localStorage.getItem('empleados') || '[]'); // Cargar empleados desde Local Storage
+  clientes: Cliente[] = []; // Array para almacenar los clientes
+  mostrarClientesFlag = false; // Bandera para mostrar/ocultar lista de clientes
+
   nuevoEmpleado = {
     nombre: '',
     contrasena: ''
   };
 
-  constructor(private router: Router) {}
+  empleadoSeleccionado: any;
+
+  constructor(private router: Router) {
+    this.cargarClientes(); // Cargar los clientes al inicializar
+  }
 
   agregarEmpleado() {
     const idNuevoEmpleado = this.empleados.length + 1; // Genera un ID único
@@ -46,10 +60,9 @@ throw new Error('Method not implemented.');
     this.nuevoEmpleado.nombre = ''; // Limpia el campo de nombre
     this.nuevoEmpleado.contrasena = ''; // Limpia el campo de contraseña
 
-     // Redirigir a la página de inicio de sesión de empleados
-     this.router.navigate(['/empleado']);
+    // Redirigir a la página de inicio de sesión de empleados
+    this.router.navigate(['/empleado']);
   }
-
 
   deshabilitarEmpleado(id: number) {
     const empleado = this.empleados.find(emp => emp.id === id);
@@ -62,12 +75,25 @@ throw new Error('Method not implemented.');
     }
   }
 
-  // Los métodos agregarPlato y mostrarClientes deben estar definidos aquí
-  agregarPlato() {
-    throw new Error('Method not implemented.');
+  // Función para cargar los clientes desde el Local Storage
+  cargarClientes() {
+    const clientesGuardados = localStorage.getItem('clientes');
+    if (clientesGuardados) {
+      this.clientes = JSON.parse(clientesGuardados); // Parsear los clientes
+    } else {
+      this.clientes = []; // Si no hay clientes, dejar el array vacío
+    }
   }
 
+  // Método para mostrar la lista de clientes
+  // Método para mostrar clientes
   mostrarClientes() {
+    this.clientes = JSON.parse(localStorage.getItem('clientes') || '[]'); // Cargar clientes desde Local Storage
+    this.mostrarClientesFlag = true; // Cambia la bandera para mostrar la lista de clientes
+  }
+  
+
+  agregarPlato() {
     throw new Error('Method not implemented.');
   }
 }

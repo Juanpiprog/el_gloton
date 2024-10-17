@@ -1,29 +1,32 @@
-<h2>Gestión de Empleados y Platos - Gerente</h2>
+<h2>Gestión de Empleados, Clientes y Platos - Gerente</h2>
 
-<!-- Botones para gestionar empleados y platos -->
-<button (click)="mostrarEmpleados()">Mostrar Empleados</button>
-<button (click)="mostrarClientes()">Mostrar Clientes</button>
-<button (click)="agregarPlato()">Agregar Plato</button>
+<!-- Botones para gestionar empleados, clientes y platos -->
+<div class="botones-gestion">
+  <button (click)="mostrarEmpleados()">Mostrar Empleados</button>
+  <button (click)="mostrarClientes()">Mostrar Clientes</button>
+  <button (click)="agregarPlato()">Agregar Plato</button>
+</div>
 
 <!-- Formulario para agregar un nuevo empleado -->
 <h3>Agregar Nuevo Empleado</h3>
-<div>
+<div class="form-agregar-empleado">
   <label for="nombre">Nombre:</label>
-  <input type="text" id="nombre" [(ngModel)]="nuevoEmpleado.nombre" required />
+  <input type="text" id="nombre" [(ngModel)]="nuevoEmpleado.nombre" placeholder="Nombre del empleado" required />
 
   <label for="contrasena">Contraseña:</label>
-  <input type="password" id="contrasena" [(ngModel)]="nuevoEmpleado.contrasena" required />
+  <input type="password" id="contrasena" [(ngModel)]="nuevoEmpleado.contrasena" placeholder="Contraseña" required />
 
   <button (click)="agregarEmpleado()">Agregar Empleado</button>
 </div>
 
 <!-- Lista de Empleados -->
-<div *ngIf="empleados.length > 0">
-  <h2>Lista de Empleados</h2>
+<div *ngIf="empleados.length > 0" class="lista-empleados">
+  <h3>Lista de Empleados</h3>
   <ul>
+    
     <li *ngFor="let empleado of empleados">
       {{ empleado.nombre }}
-      <button (click)="deshabilitarEmpleado(empleado.id)">Deshabilitar Empleado</button>
+      <button (click)="deshabilitarEmpleado(empleado.id)">Deshabilitar</button>
       <span *ngIf="!empleado.habilitado" style="color: red;">(Deshabilitado)</span>
     </li>
   </ul>
@@ -31,12 +34,29 @@
 
 <!-- Deshabilitar Empleado -->
 <h3>Deshabilitar Empleado</h3>
-<div *ngIf="empleados.length > 0">
+<div *ngIf="empleados.length > 0" class="deshabilitar-empleado">
   <label for="empleadoSelect">Seleccionar Empleado:</label>
   <select id="empleadoSelect" [(ngModel)]="empleadoSeleccionado">
     <option *ngFor="let empleado of empleados" [value]="empleado.id">
       {{ empleado.nombre }}
     </option>
   </select>
-  <button (click)="empleadoSeleccionado ? deshabilitarEmpleado(empleadoSeleccionado) : null">Deshabilitar Empleado</button>
+  <button (click)="empleadoSeleccionado ? deshabilitarEmpleado(empleadoSeleccionado) : null">
+    Deshabilitar Empleado
+  </button>
+</div>
+
+<!-- Mostrar Clientes -->
+<div *ngIf="clientes.length > 0 && mostrarClientesFlag" class="lista-clientes">
+  <h3>Lista de Clientes</h3>
+  <ul>
+    <li *ngFor="let cliente of clientes">
+      {{ cliente.nombre }} - {{ cliente.telefono }}
+    </li>
+  </ul>
+</div>
+
+<!-- Si no hay clientes registrados, mostrar un mensaje -->
+<div *ngIf="clientes.length === 0 && mostrarClientesFlag">
+  <p>No hay clientes registrados.</p>
 </div>

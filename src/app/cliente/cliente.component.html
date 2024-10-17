@@ -1,31 +1,29 @@
-<div>
-  <h2>Cliente</h2>
+<h2>Registro de Cliente</h2>
+<form (ngSubmit)="registrar()">
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" [(ngModel)]="nombre" name="nombre" required />
 
-  <h3>Registro</h3>
-  <form (ngSubmit)="registrar()">
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" [(ngModel)]="nombre" name="nombre" required>
+  <label for="direccion">Dirección:</label>
+  <input type="text" id="direccion" [(ngModel)]="direccion" name="direccion" required />
 
-    <label for="direccion">Dirección:</label>
-    <input type="text" id="direccion" [(ngModel)]="direccion" name="direccion" required>
+  <label for="telefono">Teléfono:</label>
+  <input type="text" id="telefono" [(ngModel)]="telefono" name="telefono" required />
 
-    <label for="telefono">Teléfono:</label>
-    <input type="text" id="telefono" [(ngModel)]="telefono" name="telefono" required>
+  <label for="contrasena">Contraseña:</label>
+  <input type="password" id="contrasena" [(ngModel)]="contrasena" name="contrasena" required />
 
-    <label for="contrasena">Contraseña:</label>
-    <input type="password" id="contrasena" [(ngModel)]="contrasena" name="contrasena" required>
+  <button type="submit">Registrar</button>
+</form>
 
-    <button type="submit">Registrarse</button>
-  </form>
+<hr />
 
-  <h3>Iniciar Sesión</h3>
-  <form (ngSubmit)="iniciarSesion()">
-    <label for="id">ID:</label>
-    <input type="text" id="id" [(ngModel)]="id" name="id" required>
+<h2>Inicio de Sesión - Cliente</h2>
+<form (ngSubmit)="iniciarSesion()">
+  <label for="idLogin">ID:</label>
+  <input type="text" id="idLogin" [(ngModel)]="idLogin" name="idLogin" required />
 
-    <label for="contrasenaLogin">Contraseña:</label>
-    <input type="password" id="contrasenaLogin" [(ngModel)]="contrasenaLogin" name="contrasenaLogin" required>
+  <label for="contrasenaLogin">Contraseña:</label>
+  <input type="password" id="contrasenaLogin" [(ngModel)]="contrasenaLogin" name="contrasenaLogin" required />
 
-    <button type="submit">Iniciar Sesión</button>
-  </form>
-</div>
+  <button type="submit">Iniciar Sesión</button>
+</form>

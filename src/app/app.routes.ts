@@ -1,15 +1,16 @@
 import { Routes } from '@angular/router';
-import { InicioComponent } from './inicio/inicio.component'; // Asegúrate de que la ruta sea correcta
-import { ClienteComponent } from './cliente/cliente.component'; // Importa el componente Cliente
-import { EmpleadoComponent } from './empleado/empleado.component'; // Importa el componente Empleado
-import { GerenteComponent } from './gerente/gerente.component'; // Importa el componente Gerente
+import { InicioComponent } from './inicio/inicio.component';
+import { ClienteComponent } from './cliente/cliente.component';
+import { EmpleadoComponent } from './empleado/empleado.component';
+import { GerenteComponent } from './gerente/gerente.component';
 import { GerenteDashboardComponent } from './gerente-dashboard/gerente-dashboard.component';
+import { MenuClienteComponent } from './menu-cliente/menu-cliente.component'; // Importa el nuevo componente
 
 export const routes: Routes = [
-  { path: '', component: InicioComponent }, // Ruta raíz para el componente Inicio
-  { path: 'cliente', component: ClienteComponent }, // Ruta para el componente Cliente
-  { path: 'empleado', component: EmpleadoComponent }, // Ruta para el componente Empleado
-  { path: 'gerente', component: GerenteComponent }, // Ruta para el componente Gerente
+  { path: '', component: InicioComponent },
+  { path: 'cliente', component: ClienteComponent },
+  { path: 'empleado', component: EmpleadoComponent },
+  { path: 'gerente', component: GerenteComponent },
   { path: 'gerente-dashboard', component: GerenteDashboardComponent },
-  { path: '**', component: InicioComponent }
+  { path: 'menu-cliente', component: MenuClienteComponent }, // Nueva ruta para el menú del cliente
 ];

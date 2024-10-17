@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // Asegúrate de importar FormsModule
+import { Router } from '@angular/router'; // Importamos el Router
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-cliente',
   standalone: true,
-  imports: [FormsModule], // Asegúrate de agregar FormsModule aquí
+  imports: [FormsModule],
   templateUrl: './cliente.component.html',
   styleUrls: ['./cliente.component.css']
 })
@@ -13,9 +14,11 @@ export class ClienteComponent {
   direccion = '';
   telefono = '';
   contrasena = '';
-  id = '';
+  idLogin = ''; // Cambié el nombre para evitar confusiones
   contrasenaLogin = '';
-  private clienteId = 1; // Para asignar IDs únicos
+  private clienteId = 1;
+
+  constructor(private router: Router) {} // Inyectamos el Router
 
   registrar() {
     const cliente = {
@@ -41,12 +44,13 @@ export class ClienteComponent {
   iniciarSesion() {
     let clientes = JSON.parse(localStorage.getItem('clientes') || '[]');
     const clienteEncontrado = clientes.find(
-      (c: any) => c.id === this.id && c.contrasena === this.contrasenaLogin
+      (c: any) => c.id == this.idLogin && c.contrasena === this.contrasenaLogin
     );
 
     if (clienteEncontrado) {
-      // Lógica para redirigir al cliente a la vista de pedidos o menú
       alert('Inicio de sesión exitoso');
+      // Redirige al cliente al menú después del inicio de sesión exitoso
+      this.router.navigate(['/menu-cliente']);
     } else {
       alert('ID o contraseña incorrectos');
     }

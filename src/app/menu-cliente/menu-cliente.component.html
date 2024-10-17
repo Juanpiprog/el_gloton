@@ -1,2 +1,14 @@
-<h2>Menú del Cliente</h2>
-<p>¡Bienvenido al menú de cliente! Aquí puedes ver y hacer tus pedidos.</p>
+<h2>Menú de Platos Disponibles</h2>
+
+<div *ngIf="platosDisponibles.length > 0">
+  <ul>
+    <li *ngFor="let plato of platosDisponibles">
+      {{ plato.nombre }} - {{ plato.descripcion }} - ${{ plato.precio }}
+      <!-- Aquí puedes agregar un botón para hacer un pedido si lo deseas -->
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="platosDisponibles.length === 0">
+  <p>No hay platos disponibles en este momento.</p>
+</div>

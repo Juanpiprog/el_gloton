@@ -93,7 +93,7 @@ throw new Error('Method not implemented.');
   }
   
 
-  agregarPlato() {
-    throw new Error('Method not implemented.');
+  irAGestionPlatos() {
+    this.router.navigate(['/platos']); // Cambia a la ruta de Platos
   }
 }
